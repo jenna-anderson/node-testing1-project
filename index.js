@@ -38,7 +38,15 @@ function trimPropertiesMutation(obj) {
  * findLargestInteger([{ integer: 1 }, { integer: 3 }, { integer: 2 }]) // returns 3
  */
 function findLargestInteger(integers) {
-  // ✨ implement
+  const largestInteger = integers.reduce((acc, curr) => {
+    for(const property in acc){
+      if (acc[property] < curr[property]) {
+        acc[property] = curr[property]
+      }
+      return acc
+    }
+  })
+  return largestInteger.integer
 }
 
 class Counter {
